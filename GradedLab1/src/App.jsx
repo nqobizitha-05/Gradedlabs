@@ -9,11 +9,13 @@ import ProductItem from './ProductItem';
 const App = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
+  const [inStockOnly, setInStockOnly] = useState(false);
 
   const filteredProducts = products.filter(product => {
     const matchesName = product.name.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = selectedCategory ? product.category === selectedCategory : true;
-    return matchesName && matchesCategory;
+    const matchesStock = inStockOnly ? product.inStock : true;
+    return matchesName && matchesCategory && matchesStock;
   });
 
   return (
@@ -22,8 +24,10 @@ const App = () => {
       <SearchBar
         searchTerm={searchTerm}
         selectedCategory={selectedCategory}
+        inStockOnly={inStockOnly}
         onSearchChange={setSearchTerm}
         onCategoryChange={setSelectedCategory}
+        onInStockChange={setInStockOnly}
       />
       <ProductList filteredProducts={filteredProducts} />
     </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SearchBar = ({ searchTerm, selectedCategory, onSearchChange, onCategoryChange }) => {
+const SearchBar = ({ searchTerm, selectedCategory, inStockOnly, onSearchChange, onCategoryChange, onInStockChange}) => {
   return (
     <div>
       <input
@@ -22,7 +22,17 @@ const SearchBar = ({ searchTerm, selectedCategory, onSearchChange, onCategoryCha
         <option value="Electronics">Electronics</option>
         <option value="Books">Books</option>
       </select>
+
+      <label>
+        <input
+          type="checkbox"
+          checked={inStockOnly}
+          onChange={(e) => onInStockChange(e.target.checked)}
+        />
+        In-stock
+      </label>
     </div>
+
   );
 };
 

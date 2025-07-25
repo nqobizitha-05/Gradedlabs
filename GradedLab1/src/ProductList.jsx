@@ -1,5 +1,6 @@
 import React from "react";
 import ProductItem from './ProductItem';
+import "./ProductList.css";
 
 const ProductList = ({ filteredProducts }) => {
   if (!filteredProducts.length) {
@@ -7,7 +8,7 @@ const ProductList = ({ filteredProducts }) => {
   }
 
   return (
-    <ul>
+    <ul className='product-list'>
       {filteredProducts.map(product => (
         <ProductItem key={product.id} product={product} />
       ))}
