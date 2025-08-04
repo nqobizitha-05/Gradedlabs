@@ -1,0 +1,11 @@
+.profileCard{
+  border: 1px solid black;
+  padding: 52px;
+  max-width:250px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2)
+}
+
+.cards{
+  display: flex;
+  gap: 20px;
+}
